@@ -35,9 +35,13 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
           a: ({ href, children }) => (
             <Link href={href || ''} className="text-blue-600 hover:underline">{children}</Link>
           ),
-          ul: ({ children }) => <ul className="list-disc list-inside my-2">{children}</ul>,
-          ol: ({ children }) => <ol className="list-decimal list-inside my-2">{children}</ol>,
-          li: ({ children }) => <li className="my-1">{children}</li>,
+          ul: ({ children }) => <ul className="list-disc pl-6 my-4 space-y-2">{children}</ul>,
+          ol: ({ children }) => <ol className="list-decimal pl-6 my-4 space-y-2">{children}</ol>,
+          li: ({ children }) => (
+            <li className="pl-2 marker:text-gray-600 dark:marker:text-gray-400">
+              {children}
+            </li>
+          ),
           blockquote: ({ children }) => (
             <blockquote className="border-l-4 border-gray-300 dark:border-gray-700 pl-4 my-3 italic">{children}</blockquote>
           ),
