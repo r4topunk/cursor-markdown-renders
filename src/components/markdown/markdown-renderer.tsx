@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
+import rehypeRaw from 'rehype-raw';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,7 +24,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
     <div className="markdown-content prose prose-lg dark:prose-invert max-w-none">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeHighlight, rehypeSlug]}
+        rehypePlugins={[rehypeRaw, rehypeHighlight, rehypeSlug]}
         components={{
           h1: ({ children }) => <h1 className="text-3xl font-bold my-4">{children}</h1>,
           h2: ({ children }) => <h2 className="text-2xl font-bold my-3">{children}</h2>,
@@ -87,7 +88,9 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
                 <iframe 
                   src={src} 
                   className="w-full h-full border-0 rounded" 
-                  allowFullScreen 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
                   {...props} 
                 />
               )}
