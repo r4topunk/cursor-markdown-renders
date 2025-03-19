@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
@@ -23,4 +26,31 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.markdown-content {
+  @apply max-w-none;
+}
+
+.markdown-content pre {
+  @apply my-4 p-4 rounded-lg overflow-x-auto;
+}
+
+.markdown-content img {
+  @apply max-w-full h-auto;
+}
+
+.markdown-content iframe {
+  @apply w-full aspect-video rounded-lg my-4;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .markdown-content pre {
+    @apply bg-gray-800;
+  }
+  
+  .markdown-content blockquote {
+    @apply border-gray-700;
+  }
 }
