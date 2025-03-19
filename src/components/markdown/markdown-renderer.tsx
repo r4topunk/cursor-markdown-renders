@@ -56,17 +56,15 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             );
           },
           img: ({ src, alt }) => (
-            <span className="relative block w-full h-auto min-h-[200px] my-4">
-              {src && (
-                <Image 
-                  src={src} 
-                  alt={alt || ''} 
-                  fill 
-                  className="object-contain" 
-                  sizes="(max-width: 768px) 100vw, 768px"
-                />
-              )}
-            </span>
+            <Image 
+              src={src || ''} 
+              alt={alt || ''} 
+              width={1920}
+              height={1080}
+              className="w-full h-auto my-4" 
+              sizes="100vw"
+              priority={false}
+            />
           ),
           hr: () => <hr className="my-6 border-gray-300 dark:border-gray-700" />,
           table: ({ children }) => (
